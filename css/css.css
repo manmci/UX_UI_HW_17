@@ -6,20 +6,27 @@ body {
 div {
     border: 1px dashed red;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Space Mono', monospace;
     color:#40D3E6;
+    border: 1px dashed yellow;
+    display: inline-block;
+    padding:5px;
+    margin:0;
 }
 h1 {
     font-size: 64pt;
-    border: 1px dashed yellow;
-    display: inline;
-    padding:5px;
-    margin:0;
+}
+h2 {
+    font-size: 38pt;
+}
+h4 {
+    font-size: 20pt;
 }
 .left {
     display: flex;
     justify-content: flex-start;
+    width:fit-content;
 }
 .right {
     display: flex;
@@ -62,7 +69,7 @@ li {
     padding:10px;
     border: 1px dashed blue;
 }
-#about {
+section {
     width:80%;
     margin-right:auto;
     margin-left:auto;
@@ -71,12 +78,74 @@ li {
 .aboutContent {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
 }
 .blurb {
-    width:49%;
+    width: 50%;
+    padding: 5px;
+}
+.blurb b, h4 {
+    color: #CF4447;
 }
 .heroImg {
     background-image: url(../img/me.png);
-    background-size: 500px;
-    width:49%
+    background-position: center;
+    background-size: cover;
+    width: 49%;
+    height:500px;
+    align-self: stretch;
+    flex-grow: 2;
 }
+/* button animation code modified from https://codepen.io/ash_s_west/pen/GRZbvym */
+button {
+    color: #40D3E6;
+    background-color: #7B518C;
+    border-radius: 5px;
+    border: 3px solid #7B518C;
+    height: 50px;
+    padding: 15px;
+    font-family: 'Prompt', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+}
+button:hover {
+    position: relative;
+    background-color: #4B2C58;
+    border: 3px solid #4B2C58;
+    transition-duration: 0.2s;
+}
+/*
+button:focus {
+    border: 3px solid #CF4447;
+}
+*/
+button:disabled {
+    opacity: .3;
+}
+button:active {
+    border: 3px solid #40D3E6;
+}
+button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 5px;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 5px 25px #40D3E6;
+  }
+button:active:after {
+    box-shadow: 0 0 0 0 #40D3E6;
+    position: absolute;
+    border-radius: 5px;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+  }
